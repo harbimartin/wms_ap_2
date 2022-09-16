@@ -95,17 +95,19 @@ class Formz {
         return $return;
     }
     public static function open($param) {
-        return '<form action="' . $param['url'] . '" method="POST">';
+        return '<form action="' . $param['url'] . '" method="' . $param['method'] . '">';
     }
     public static function select($name, $list, $selected, $class) {
         $ret = '<select name="' . $name . '">';
-        foreach ($list as $l) {
+        foreach ($list as $kl => $l) {
+            $ret .= '<option value="' . $kl . '" ' . ($selected == $kl ? 'selected' : '') . '>' . $l . '</option>';
         }
+        $ret .= '</select>';
         return $ret;
     }
 
     public static function submit($name, $array) {
-        return '<button type="submit" ' . implode($array) . '>' . $name . '</button>';
+        return '<button type="submit" ' . (sizeof($array) > 0 ? ' class="' . implode($array) . '"' : '') . '>' . $name . '</button>';
     }
 
     public static function textarea($name = null, $value = null, $array) {
