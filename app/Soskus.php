@@ -12,15 +12,16 @@ class Soskus extends Model {
     protected $table = "soskus";
 
     function Sos() {
+        return $this->belongsTo(Sos::class, 'id_so');
         return $this->belongsTo('Sos', 'id_so');
     }
 
     function Skus() {
-        return $this->belongsTo('Skus', 'id_sku');
+        return $this->belongsTo(Skus::class, 'id_sku');
     }
 
     function Paletsoskus() {
-        return $this->hasMany('Paletsoskus', 'id_sosku');
+        return $this->hasMany(Paletsoskus::class, 'id_sosku');
     }
 
     function SosSkuTable($id_so) {

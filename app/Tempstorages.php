@@ -11,11 +11,11 @@ class Tempstorages extends Model {
     protected $table = "tempstorages";
 
     function Paletposkus() {
-        return $this->belongsTo('Paletposkus', 'id_paletposku');
+        return $this->belongsTo(Paletposkus::class, 'id_paletposku');
     }
 
     function Slots() {
-        return $this->belongsTo('Slots', 'id_slot');
+        return $this->belongsTo(Slots::class, 'id_slot');
     }
 
     function TempStorTable() {

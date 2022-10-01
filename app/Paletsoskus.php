@@ -5,13 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Paletsoskus extends Model {
-	protected $table = "paletsoskus";
+    protected $table = "paletsoskus";
 
-	function Soskus() {
-		return $this->belongsTo('Soskus', 'id_sosku');
-	}
+    function Soskus() {
+        return $this->belongsTo(Soskus::class, 'id_sosku');
+    }
 
-	function Slots() {
-		return $this->belongsTo('Slots', 'id_slot');
-	}
+    function Slots() {
+        return $this->belongsTo(Slots::class, 'id_slot');
+    }
 }

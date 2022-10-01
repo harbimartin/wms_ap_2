@@ -12,7 +12,7 @@ class Uoms extends Model {
     protected $table = "uoms";
 
     function Skus() {
-        return $this->belongsTo('Skus', 'id_sku');
+        return $this->belongsTo(Skus::class, 'id_sku');
     }
 
     function UomTable() {
